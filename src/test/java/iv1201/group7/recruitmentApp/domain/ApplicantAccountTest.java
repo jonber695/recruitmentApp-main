@@ -40,6 +40,7 @@ import org.springframework.test.context.transaction.TestTransaction;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 
+import iv1201.group7.recruitmentApp.repository.DbUtil;
 import net.jcip.annotations.NotThreadSafe;
 //import se.kth.iv1201.appserv.bank.repository.AccountRepository; - import repo
 //import se.kth.iv1201.appserv.bank.repository.DbUtil; - import util
@@ -59,11 +60,22 @@ import net.jcip.annotations.NotThreadSafe;
 @Transactional
 @Commit
 class ApplicantAccountTest implements TestExecutionListener {
-    //@Autowired
-    //private DbUtil dbUtil;
+    @Autowired
+    private DbUtil dbUtil;
     //@Autowired
     //private some repository - account repository?
     private ApplicantAccount account;
+
+    @Override
+    public void beforeTestClass(TestContext testContext) throws SQLException, IOException, ClassNotFoundException {
+        dbUtil = testContext.getApplicationContext().getBean(DbUtil.class);
+        enableCreatingEMFWhichIsNeededForTheApplicationContext();
+    }
+
+    private void enableCreatingEMFWhichIsNeededForTheApplicationContext()
+            throws SQLException, IOException, ClassNotFoundException {
+        dbUtil.emptyDb();
+    }
     
     @BeforeEach
     void setup() throws SQLException, IOException, ClassNotFoundException {
