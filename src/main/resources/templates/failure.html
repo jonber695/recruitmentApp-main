@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" xml:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
+    <head>
+        <title>Something went wrong</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main layout:fragment="content">
+            <h1 th:if="${#messages.msgOrNull('error.__${errorType}__') != null}"
+                th:text="#{error.__${errorType}__}">Error</h1>
+            <h1 th:if="${#messages.msgOrNull('error.__${errorType}__') == null}"
+                th:text="#{error.generic}">Generic error</h1>
+            <p class="info" th:if="${#messages.msgOrNull('error.__${errorType}__.info') != null}"
+               th:text="#{error.__${errorType}__.info}">Current error details</p>
+            <p class="info" th:if="${#messages.msgOrNull('error.__${errorType}__.info') == null}"
+               th:text="#{error.generic.info}">Generic error details</p>
+        </main>
+    </body>
+</html>

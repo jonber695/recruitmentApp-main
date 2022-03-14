@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <title>App</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <header th:fragment="menu">
+            <span th:text="#{menu.title}">Bytt språk:</span>
+            <a th:href="@{''(lang=en)}"><span th:text="English"/></a>
+            <a th:href="@{''(lang=sv)}"><span th:text="Svenska"/></a>
+            <a th:href="@{/}"><span th:text="#{menu.home}">Home</span></a>
+        </header>
+    </body>
+</html>

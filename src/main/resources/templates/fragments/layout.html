@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+    <head th:replace="~{/fragments/header::header}">
+        <title>App</title>
+    </head>
+    <body>
+        <header th:replace="~{fragments/menu::menu}"></header>
+        
+        <main layout:fragment="content"></main>
+            
+        <footer th:replace="~{fragments/footer::footer}"></footer>
+        
+    </body>
+</html>

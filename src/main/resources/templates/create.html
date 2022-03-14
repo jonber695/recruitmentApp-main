@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" xml:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
+    <head>
+        <title>Create Application</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main layout:fragment="content">
+            <h1 th:text="#{create.create}"> Create Application </h1>
+
+
+
+            <form th:action="@{/create}" th:object="${compCreation}" method="post">
+                <table>
+            <tr th:each="comp: ${competence}">
+                 <td>
+                    <span th:text="${comp.name}">Name</span>
+                 </td>
+
+            <tr th:each="year, itemStat: *{yearsOfExperience}">
+                <td>
+                    <input type="number" th:field="*{yearsOfExperience[__${itemStat.index}__]}"/>
+                </td>
+
+            </tr></tr>
+            </table>
+                <p class="submit"><input type="submit" th:value="#{create.create.submit}"/>
+                </p>
+            </form>
+        </main>
+    </body>
+</html>

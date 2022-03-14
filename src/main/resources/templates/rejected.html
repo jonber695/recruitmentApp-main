@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" xml:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
+    <head>
+        <title>Applicant rejected</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main layout:fragment="content">
+            <h1 th:text="#{application.rejected}">Applicant rejected</h1>
+            <div th:text="#{application.rejected.info}">The applicant has been rejected.</div>
+        </main>
+    </body>
+</html>

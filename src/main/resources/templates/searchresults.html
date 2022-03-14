@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" xml:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}"
+      >
+    
+    <head>
+        <title>Log in</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main layout:fragment="content">
+        <h1 th:text="#{search.results}">Search Results</h1>
+        <table>
+  <tr th:each="applicant: ${viewedApplicant}">
+            <td> <span th:text="#{applicant.details.name}">Applicant name</span>: 
+                 <span th:text="${applicant.name}">Name</span>
+                 <span th:text="${applicant.surname}">Surname</span>
+            </td>
+      
+             <td>   <form th:action="@{/searchresults}" th:object="${viewApplicationForm}" method="post">
+                  <button type="submit" th:text=#{application.view.submit} th:name="applicantId" th:value="${applicant.id}">View Application</button>
+    
+ 
+                 </form></span></td></tr></table>
+      </main>
+    </body>
+</html>

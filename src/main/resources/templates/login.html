@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang = "en" xmlns:th="http://www.thymeleaf.org" xml:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/layout}">
+    <head>
+        <title>Log in</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <main layout:fragment="content">
+            <h1 th:text="#{login.login}">Log in</h1>
+            <form th:action="@{/login}" th:object="${loginForm}" method="post">
+                <div th:if="${param.error}">
+                    <div>
+                        <span style="color:red;" th:text="#{login.error}"></span>
+                    </div>
+                </div>
+                <p class="form"><label for="login-username" th:text="#{login.login.username}">Username
+                    </label>:<input type="text" th:field="*{username}" name="username" id="login-username" />
+                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error
+                    </span></p>
+                <p class="form"><label for="login-password" th:text="#{login.login.password}">Password
+                    </label>:<input type="text" th:field="*{password}" name="password" id="login-password"/>
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Username Error
+                    </span></p>
+                <p class="form"><label for="login-choice" th:text="#{login.login.choice}">Recruiter
+                    </label>:<input type="checkbox" name="loginAsRecruiter" th:field="*{loginAsRecruiter}" id="login-choice"/>
+                </p>
+                <p class="submit"><input type="submit" th:value="#{login.login.submit}"/>
+                </p>
+            </form>
+        </main>
+    </body>
+</html>
