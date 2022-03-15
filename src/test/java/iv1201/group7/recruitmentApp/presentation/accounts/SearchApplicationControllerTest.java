@@ -127,6 +127,6 @@ public class SearchApplicationControllerTest implements TestExecutionListener{
     }
     
     private ResultMatcher containsErrorMsg(String idForErrorElem, String errorMsg) {
-        return containsElements("input[id=" + idForErrorElem + "]" + "~span.error:contains(" + errorMsg + ")");
+        return containsElements("input[id=" + idForErrorElem + "]" + "~span.error:contains(" + errorMsg + ")"); 
     }
 }
