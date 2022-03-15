@@ -119,11 +119,11 @@ public class SearchApplicationControllerTest implements TestExecutionListener{
     }
     
     private ResultMatcher isAcceptedPage(){
-        return containsElements("h1:contains(Applicant accepted)");
+        return containsElements("h1:contains(Application accepted)");
     }
     
         private ResultMatcher isRejectedPage(){
-        return containsElements("h1:contains(Applicant rejected)");
+        return containsElements("h1:contains(Application rejected)");
     }
     
     private ResultMatcher containsErrorMsg(String idForErrorElem, String errorMsg) {
